@@ -43,19 +43,10 @@ http://www.templatemo.com/tm-483-lumino
 
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#top">Intro</a>
+                                <a class="nav-link" href="#top">Top</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#tm-section-2">News</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#tm-section-3">Gallery</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#tm-section-4">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link external" href="columns.html">Columns</a>
+                                <a class="nav-link" href="#tm-section-2">Acerca de</a>
                             </li>
                         </ul>
 
