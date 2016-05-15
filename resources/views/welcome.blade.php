@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Lumino - free Bootstrap 4.0 theme</title>
+    <title>City Tour Xela</title>
 <!--
 Lumino Theme
 http://www.templatemo.com/tm-483-lumino
@@ -63,10 +63,7 @@ http://www.templatemo.com/tm-483-lumino
 
                     <section id="tm-section-1">
                         <div class="tm-container text-xs-center tm-section-1-inner">
-                            <img src="img/tm-lumino-logo.png" alt="Logo" class="tm-logo">
-                            <h1 class="tm-site-name">Lumino</h1>
-                            <p class="tm-intro-text">Free Bootstrap 4.0 Website Template</p>
-                            <a href="#tm-section-2" class="tm-intro-link">Begin</a>
+                            <h1 class="tm-site-name">City Tour Xela</h1>
                         </div>
                    </section>
 
@@ -77,7 +74,36 @@ http://www.templatemo.com/tm-483-lumino
 
                 <div id="tm-section-2" class="tm-section">
                     <div class="tm-container tm-container-wide">
-                        <div class="tm-news-item">
+                      <?php
+                      $div_imagen = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-news-item-img-container">';
+                      $div_sitio = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-news-container flex-order-1">';
+                      $i = 0;
+                      foreach ($sitios as $sitio) {
+                        if($i%2==1){
+                          $div_imagen = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 flex-order-2 tm-news-item-img-container">';
+                          $div_sitio = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-news-container flex-order-1">';
+                        }
+                        else{
+                          $div_imagen = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-news-item-img-container">';
+                          $div_sitio = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-news-container">';
+                        }
+                        $i = $i+1;
+                        echo '<div class="tm-news-item">
+                          ' . $div_imagen . '
+                            <img src="img/tm-600x300-01.jpg" alt="Image" class="img-fluid tm-news-item-img">
+                        </div>
+                      ' . $div_sitio . '
+                            <h2 class="tm-news-title dark-gray-text">' . $sitio["nombre"] . ' - ' . $sitio["calificacion"] . '</h2>
+                            <p class="tm-news-text">' . $sitio["resumen"] . '</p>
+                            <a href="#" class="btn tm-light-blue-bordered-btn tm-news-link">Preview</a>
+                        </div>
+                    </div>
+                        ';
+                      }
+
+                      ?>
+
+                      <div class="tm-news-item">
 
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-news-item-img-container">
                                 <img src="img/tm-600x300-01.jpg" alt="Image" class="img-fluid tm-news-item-img">

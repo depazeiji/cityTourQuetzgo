@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/', 'Controller@verTop');
+Route::post('/viendoActividadesPrecio', 'userController@verActividadesPrecio');
