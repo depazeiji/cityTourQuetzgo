@@ -2,7 +2,10 @@ CREATE TABLE SITIO(
   id_sitio int AUTO_INCREMENT NOT NULL PRIMARY KEY,
   nombre varchar(150) NOT NULL,
   calificacion decimal(4,1) NOT NULL DEFAULT 10.0,
-  descripcion text NOT NULL DEFAULT ''
+  descripcion text NOT NULL DEFAULT '',
+  longitud decimal(10,7) NOT NULL,
+  latitud decimal(10,7) NOT NULL,
+  no_calificadas int NOT NULL DEFAULT 0
 )
 ENGINE=INNODB;
 
@@ -27,15 +30,34 @@ CREATE TABLE FOTO(
 )
 ENGINE=INNODB;
 
-INSERT INTO SITIO(nombre, calificacion)
-VALUES ('Volcan Santa Maria', 5.7);
-INSERT INTO SITIO(nombre, calificacion)
-VALUES ('Parque central', 7.8);
+INSERT INTO SITIO(nombre, calificacion, latitud, longitud, descripcion)
+VALUES ('Volcan Santa Maria', 5.7, 14.7571433, -91.5516975
+, 'Este volcán está ubicado en el municipio de Quetzaltenango, Departamento de Quetzaltenango, Guatemala. Se encuentra a una altitud de 3,772 metros sobre el nivel del mar.
+El macizo volcánico Santa María pertenece a lo que fue el sistema volcánico más antiguo y en él también se hallan el volcán Siete Orejas y parte del volcán Chicabal.
 
-INSERT INTO SITIO(nombre, calificacion, descripcion)
+Es un estrato volcán, o sea que se formó de capas alternas de lava y piroclástos o sea fragmentos de lava. Tiene un cráter de explosión en su falda oeste y actualmente se conoce como volcán Santiaguito.
+
+Los indígenas kiches lo llamaban Gagxanul, que quiere decir "montaña o volcán desnudo". Y se tiene noticia de las erupciones en el Memorial de Sololá, Siglo XVI.
+
+El 24 y 25 de octubre de 1902 hubo una gran erupción que sacó material magmático a 8.6 kilómetros de distancia. Quetzaltenango estuvo cubierto con medio metro de ceniza volcánica y la columna de humo alcanzó 30 km de altura.
+¿Como llegar al Volcán?
+Para llegar al volcán Santa María, debe llegar al municipio de Quetzaltenango (201 km de la ciudad de Guatemala). Luego buscar el desvío hacia el caserío Llano del Pinal (7 km de Quetzaltenango). Allí dejar el vehículo e iniciar el ascenso.
+
+Si viaja en camioneta, llegue a Quetzaltenango y diríjase a la terminal de buses (ubicada frente al Templo de Minerva, salida a San Marcos) y tome un bus que vaya al caserío Llano del Pinal o Chicavioc. El tiempo de ascenso es de 3 horas y el descenso es de 2 horas aproximadamente.
+¿Que se ve desde la Cumbre?
+La vista es maravillosa. Observará los volcanes: Tacaná, Tajumulco, Siete Orejas, Chicabal, Lacandón. Los volcanes del lago de Atitlán que son San Pedro, Atitlán y Tolimán, así como los volcanes de Acatenango, Fuego y Agua.
+Recomendaciones
+- Este volcán se puede escalar en un día por lo que debe calcular si va a desayunar y/o almorzar para ver la cantidad de comida que llevará. Sin embargo, se recomienda llevar por lo menos 2 litros de agua. Los alimentos los debe llevar en recipientes o bolsas plásticas para que no pesen mucho.
+
+- El lugar es sumamente frío, por lo que se recomienda llevar una chumpa que sea caliente y liviana a la vez. Además, un buen par de zapatos flojos para que no le molesten.');
+
+INSERT INTO SITIO(nombre, calificacion, latitud, longitud)
+VALUES ('Parque central', 7.8, 0, 0);
+
+INSERT INTO SITIO(nombre, calificacion, latitud, longitud, descripcion)
 VALUES ('Fuentes Georginas'
-  , 9.6
-  , 'El balneario cuenta con siete piscinas de aguas termales, cinco en la parte superior, y dos piscinas que pocas personas conocen, se encuentran en el “sendero ecológico”.  El cual inicia en el área de parqueo, detrás de la cabaña uno encontraras las gradas para bajar, en este sendero hay dos desvíos, el de la izquierda te llega a las piscinas y el de la derecha te llevará a un lugar conocido como “La Cueva” – un lugar donde los habitante de Xela que profesan la religión Maya, realizan ceremonias y oraciones.
+  , 9.6, 14.749913, -91.480282
+  , 'El balneario cuenta con siete piscinas de aguas termales, cinco en la parte superior, y dos piscinas que pocas personas conocen, se encuentran en el “sendero ecológico”, el cual inicia en el área de parqueo, detrás de la cabaña uno encontraras las gradas para bajar, en este sendero hay dos desvíos, el de la izquierda te llega a las piscinas y el de la derecha te llevará a un lugar conocido como “La Cueva” – un lugar donde los habitante de Xela que profesan la religión Maya, realizan ceremonias y oraciones.
   Muchas personas atribuyen poderes medicinales a las Fuentes Georginas, personalmente he visto como personas logran llegar hasta la peña, recolectan el agua que está naciendo y la guardan en botellas plásticas, luego la beben y un poco para la casa, “porque los abuelos así lo recomiendan”. Otros aprovechan a exfoliar la piel o aprovechan a hacer hidroterapia. Un amigo muy cercano, me contó que él iba allí ya que lo utilizaba como medicina alternativa.
 
 El destino cuenta con 9 cabañas que se pueden alquilar y pernoctar, estas cabañas están equipadas con baño privado, 2 camas matrimoniales, una pequeña pileta para que dos personas puedan relajarse con aguas termales dentro de la cabaña (debes esperar bastante para que el agua caiga caliente), chimenea y leña para calentarte en la fría noche.  No hay televisor y la luz es limitada hasta las 9 de la noche.
@@ -67,8 +89,8 @@ Recomendaciones del lugar
 
 
 INSERT INTO FOTO(url, portada, id_sitio)
-VALUES('img/georginas/1.jpg', 1, 3);
+VALUES('img/georginas/1.jpeg', 1, 5);
 INSERT INTO FOTO(url, portada, id_sitio)
-VALUES('img/santa-maria/1.jpg', 1, 1);
+VALUES('img/santa-maria/1.JPG', 1, 3);
 INSERT INTO FOTO(url, portada, id_sitio)
-VALUES('img/parque-central/1.jpg', 1, 2);
+VALUES('img/parque-central/1.jpg', 1, 4);

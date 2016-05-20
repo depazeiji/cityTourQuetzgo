@@ -26,7 +26,6 @@ http://www.templatemo.com/tm-483-lumino
 </head>
 
     <body id="top" class="home">
-
         <div class="container-fluid">
             <div class="row">
 
@@ -39,7 +38,7 @@ http://www.templatemo.com/tm-483-lumino
                       &#9776;
                     </button>
 
-                    <div >
+                    <div>
 
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
@@ -71,24 +70,26 @@ http://www.templatemo.com/tm-483-lumino
             </div>
 
 <?php
-function mostrarEstrellasCalificar(){
+function mostrarEstrellasCalificar($id_sitio){
 return '<fieldset class="rating">
-    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-    <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-    <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-    <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-    <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-    <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-</fieldset>';
+    <input type="radio" id="star5" name="rating" value="10" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+    <input type="radio" id="star4half" name="rating" value="9" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+    <input type="radio" id="star4" name="rating" value="8" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+    <input type="radio" id="star3half" name="rating" value="7" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+    <input type="radio" id="star3" name="rating" value="6" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+    <input type="radio" id="star2half" name="rating" value="5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+    <input type="radio" id="star2" name="rating" value="4" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+    <input type="radio" id="star1half" name="rating" value="3" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+    <input type="radio" id="star1" name="rating" value="2" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+    <input type="radio" id="starhalf" name="rating" value="1" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+</fieldset>
+<button type="button" onclick="calificar('.$id_sitio.')" id="btn-calificar" class="btn tm-light-blue-bordered-btn">Calificar</button>
+';
 }
 
 function mostrarEstrellas($puntuacion){
   $puntos = round($puntuacion);
-  $estrellas = '<fieldset class="rating">';
+  $estrellas = '<fieldset class="rating text-xs-center">';
   for ($i = 10; $i > $puntos; $i--) {
     $class = 'full';
     $id = "star" . $i;
@@ -114,90 +115,40 @@ return $estrellas;
 
 ?>
 
-            <div class="row gray-bg">
-                 <div id="tm-section-2" class="tm-section">
-                    <div class="tm-container tm-container-wide">
-                      <?php
-                      $div_imagen = '';
-                      $div_sitio = '';
-                      $i = 0;
-                      foreach ($sitios as $sitio) {
-                        if($i%2==1){
-                          $div_imagen = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 flex-order-2 tm-news-item-img-container">';
-                          $div_sitio = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-news-container flex-order-1">';
-                        }
-                        else{
-                          $div_imagen = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-news-item-img-container">';
-                          $div_sitio = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-news-container">';
-                        }
-                        $i = $i+1;
-                        echo '<div class="tm-news-item">
-                          ' . $div_imagen . '
-                            <img src="' . $sitio["foto"] . '" alt="Image" class="img-fluid tm-news-item-img">
-                        </div>
-                      ' . $div_sitio . '
-                            <h2 class="tm-news-title dark-gray-text">' . $sitio["nombre"] . ' - ' . $sitio["calificacion"] . '</h2>
-                            ' . mostrarEstrellas($sitio["calificacion"]) . '
-                            <p class="tm-news-text">' . $sitio["resumen"] . '</p>
-                            <a href="/sitio?id='.$sitio["id"].'" class="btn tm-light-blue-bordered-btn tm-news-link">Ver más</a>
-                            </div>
-                        </div>
-                        ';
-                      }
-
-                      ?>
-
-
-
-
-
-                    </div>
-               </div>
-
-           </div> <!-- row -->
-
+            <div class="row">
+              <div id="tm-section-1" class="tm-section">
+                <div class="col-md-12">
+                <div class="col-md-12">
+                  <div class="col-md-12">
+                    <h1 class="text-xs-center blue-text tm-page-2-title">
+                      <?php echo $sitios[0]["nombre"]; ?>
+                    </h1>
+                  </div>
+                  <div class="col-md-12">
+                    <p><?php echo mostrarEstrellas($sitios[0]["calificacion"]); ?></p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                    <p class="tm-page-2-p tm-page-2-subtitle">
+                      <?php echo $sitios[0]["descripcion"]; ?>
+                    </p>
+                    <img src="img/tm-1800x600-01.jpg" class="img-fluid" alt="Image"></br>
+                    <?php
+                    echo '<div id="googleMap" style="height:450px;" att="hola" latitud="'.$sitios[0]["latitud"].'" longitud="'.$sitios[0]["longitud"].'"></div></br>';
+                    ?>
+                    <?php echo mostrarEstrellasCalificar($sitios[0]["id"]); ?>
+                </div>
+              </div>
+              </div>
+            </div>
 
             <div class="row gray-bg">
 
-                <section id="tm-section-4" class="tm-section">
-                    <div class="tm-container">
-
-                        <h2 class="blue-text tm-title text-xs-center">Contact Us</h2>
-
-                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
-                            <form action="index.html" method="post" class="tm-contact-form">
-                                <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 tm-form-group-left">
-                                    <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name"  required/>
-                                </div>
-                                <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 tm-form-group-right">
-                                    <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Email"  required/>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" id="contact_subject" name="contact_subject" class="form-control" placeholder="Subject"  required/>
-                                </div>
-                                <div class="form-group">
-                                    <textarea id="contact_message" name="contact_message" class="form-control" rows="6" placeholder="Message" required></textarea>
-                                </div>
-
-                                <button type="submit" class="btn tm-light-blue-bordered-btn pull-xs-right">Submit</button>
-                            </form>
-                        </div> <!-- col -->
-
-                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 margin-top-xs-50">
-                            <h3 class="light-blue-text tm-subtitle">Etiam at rhoncus nisl</h3>
-                            <p>Nunc rutrum ac ante euismod cursus. Suspendisse imperdiet feugiat massa nec iaculis</p>
-                            <p>
-                                Tel: <a href="tel:0100200340">010-020-0340</a><br>
-                                Email: <a href="mailto:info@company.com">info@company.com</a>
-                            </p>
-                        </div>
-                    </div>
-                </section>
 
                 <!-- footer -->
                 <footer class="tm-footer">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                        <p class="text-xs-center tm-footer-text">Copyright &copy; 2016 Company Name | Design: Lumino</p>
+                        <p class="text-xs-center tm-footer-text">Copyright &copy; 2016 Eiji De Paz | Design: Lumino</p>
                     </div>
                 </footer>
 
@@ -213,6 +164,37 @@ return $estrellas;
         <script src="js/jquery.singlePageNav.min.js"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
         <script src="js/jquery.magnific-popup.min.js"></script>     <!-- Magnific pop-up (http://dimsemenov.com/plugins/magnific-popup/) -->
 
+        <script>
+          function calificar(id){
+            var puntos = 0;
+            if(document.getElementById("starhalf").checked) puntos = 1;
+            if(document.getElementById("star1").checked) puntos = 2;
+            if(document.getElementById("star1half").checked) puntos = 3;
+            if(document.getElementById("star2").checked) puntos = 4;
+            if(document.getElementById("star2half").checked) puntos = 5;
+            if(document.getElementById("star3").checked) puntos = 6;
+            if(document.getElementById("star3half").checked) puntos = 7;
+            if(document.getElementById("star4").checked) puntos = 8;
+            if(document.getElementById("star4half").checked) puntos = 9;
+            if(document.getElementById("star5").checked) puntos = 10;
+            window.location.href = "/sitio?id=" + id + "&puntos=" + puntos;
+        }
+        </script>
+
+        <script src="http://maps.googleapis.com/maps/api/js"></script>
+        <script>
+        $(document).ready(function initialize() {
+          var latitud = document.getElementById("googleMap").getAttribute("latitud");
+          var longitud = document.getElementById("googleMap").getAttribute("longitud");
+          var mapProp = {
+            center:new google.maps.LatLng(latitud,longitud),
+            zoom:16,
+            mapTypeId:google.maps.MapTypeId.ROADMAP
+          };
+          var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+          google.maps.event.addDomListener(window, 'load', initialize);
+          });
+        </script>
 
         <!-- Templatemo scripts -->
         <script>

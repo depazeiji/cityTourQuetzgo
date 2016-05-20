@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 use DB;
+use Request;
 
 class Controller extends BaseController
 {
@@ -19,9 +20,31 @@ class Controller extends BaseController
       foreach ($selecciones as $seleccion) {
         $sitios[]=array("nombre" => $seleccion->nombre
                       ,"calificacion" => $seleccion->calificacion
-                      ,"resumen" => $seleccion->resumen);
+                      ,"resumen" => $seleccion->resumen
+                      ,"foto" => $seleccion->url
+                      ,"id" => $seleccion->id_sitio);
       }
       return view('welcome',array('sitios' => $sitios));
+    }
+
+    public function verSitio(){
+      $id = Request::get('id');
+      $resultados = DB::select('CALL getSitio('.$id.')');
+      $sitios = array();
+      foreach ($resultados as $seleccion) {
+        $sitios[]=array("nombre" => $seleccion->nombre
+                      ,"calificacion" => $seleccion->calificacion
+                      ,"descripcion" => $seleccion->resumen
+                      ,"foto" => $seleccion->url
+                      ,"id" => $seleccion->id_sitio
+                      ,"latitud" => $seleccion->latitud
+                      ,"longitud" => $seleccion->longitud);
+      }
+      $puntos = Request::get('puntos');
+      if($puntos != null){
+        $calificar = DB::statement('CALL calificar('.$id.', '.$puntos.')');
+      }
+      return view('sitio', array('sitios' => $sitios));
     }
 
 }

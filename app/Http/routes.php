@@ -16,4 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('/', 'Controller@verTop');
-Route::post('/viendoActividadesPrecio', 'userController@verActividadesPrecio');
+Route::get('/sitio', 'Controller@verSitio');
