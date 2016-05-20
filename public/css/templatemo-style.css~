@@ -72,7 +72,7 @@ h3 { margin-bottom: 2.5rem; }
 button:focus { outline: none; }
 
 .tm-intro {
-	background: url(../img/home-bg.jpg) no-repeat;
+	background: url(../img/arco.jpeg) no-repeat;
 	background-attachment: fixed;
 	background-position: left top;
 	background-size: 100% 750px;
@@ -89,8 +89,7 @@ button:focus { outline: none; }
 	-webkit-justify-content: center;
 	    -ms-flex-pack: center;
 	        justify-content: center;
-	height: 750px;	
-
+	height: 350px;
 }
 
 @media (max-width: 1800px) {

@@ -132,8 +132,9 @@ return $estrellas;
                     <p class="tm-page-2-p tm-page-2-subtitle">
                       <?php echo $sitios[0]["descripcion"]; ?>
                     </p>
-                    <img src="img/tm-1800x600-01.jpg" class="img-fluid" alt="Image"></br>
                     <?php
+		    echo '<img src="'.$sitios[0]["foto"].'" class="img-fluid" alt="Image"></br>';
+                    
                     echo '<div id="googleMap" style="height:450px;" att="hola" latitud="'.$sitios[0]["latitud"].'" longitud="'.$sitios[0]["longitud"].'"></div></br>';
                     ?>
                     <?php echo mostrarEstrellasCalificar($sitios[0]["id"]); ?>

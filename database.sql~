@@ -52,7 +52,7 @@ Recomendaciones
 - El lugar es sumamente frío, por lo que se recomienda llevar una chumpa que sea caliente y liviana a la vez. Además, un buen par de zapatos flojos para que no le molesten.');
 
 INSERT INTO SITIO(nombre, calificacion, latitud, longitud, descipcion)
-VALUES ('Parque central', 7.8, 14.8344623, -91.5182905
+VALUES ('Parque central', 7.8, 0, 0
 	, 'Consistía en realidad de 2 jardines, uno de los cuales era parte o extensión del atrio de la iglesia, sus nombres eran: Jardín de la Juventud y Jardín La Unión. Estaban separados por un portal llamado Portal de las Banderillas cuya función era plenamente comercial.
 
 En 1938 el arquitecto Rafael Pérez trazó junto a Martín Quijivix y Macario Ixcok su distribución final, durante el gobierno de Jorge Ubico. Los antiguos jardines, fueron integrados en un solo cuerpo: El Parque de Centro América.  Fue y sigue siendo centro de actividades importantes de caracter social y político, sufrió varias remodelaciones. El kiosko del Parque es un monumento a uno de los autores del Himno Nacional: Rafael Álfavez Ovalle.');
