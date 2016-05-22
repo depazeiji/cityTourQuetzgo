@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/welcome', function () {
+    return view('prueba');
 });
-
 Route::get('/', 'Controller@verTop');
 Route::get('/sitio', 'Controller@verSitio');
