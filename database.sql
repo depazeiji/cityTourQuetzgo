@@ -159,3 +159,24 @@ INSERT INTO FOTO(url, portada, id_sitio)
 VALUES('img/santa-maria/1.JPG', 1, 3);
 INSERT INTO FOTO(url, portada, id_sitio)
 VALUES('img/parque-central/1.jpg', 1, 4);
+
+
+
+
+INSERT INTO SITIO(nombre, calificacion, latitud, longitud, descipcion)
+VALUES ('Chicovix', 9.1, 14.7920156, -91.4747603
+	, 'Justamente en la cabecera municipal de San Carlos Sija está el Cerro Sija, una montaña con bastante cobertura boscosa de pino-encino.
+  Usted disfrutará caminar abajo de los árboles con su familia, sus amigos, su perrito o simplemente sol@. Cuando llegue a la meta, puede gozar en las vistas maravillosas de los volcanes de esta región: Santa Maria, Tacaná y Tajulmuco. Descanse y hagase picnic. No hay prisa para bajar.
+  Si no quiere bajar el mismo día, traiga su casa de campaña y duerma bajo las estrellas.<br>
+  <br>Los Baños Chicovix se encuentra en el Municipio de Cantel a 10 Kilómetros de la cabecera departamental.
+  <br><br>Cuenta con un centro recreativo, en donde hay alberca, pozas de aguas termales y caminos para practicar el senderismo, lo mejor es venir a disfrutar de las calientes aguas termales a las que se les atribuyen propiedades curativas.');
+
+INSERT INTO SITIO(nombre, calificacion, latitud, longitud, descipcion)
+VALUES ('Cerro Sija', 8.8, 14.9817809, -91.5507151
+  	, 'Se trata de un manantial de aguas termales que provienen del río Samala, la temperatura del agua alcanza hasta los 40 grados centígrados, para los indígenas es considerado como un lugar sagrado en donde se realizan diversas ceremonias.');
+
+INSERT INTO FOTO(url, portada, id_sitio)
+  VALUES('img/sija/1.jpg', 1, x);
+
+INSERT INTO FOTO(url, portada, id_sitio)
+  VALUES('img/chicovix/1.png', 1, x);
