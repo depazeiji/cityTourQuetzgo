@@ -15,7 +15,7 @@ class Controller extends BaseController
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
 
     public function verTop(){
-      $selecciones = DB::select('CALL getTop();');
+      $selecciones = DB::select('CALL getTop();')->paginate(9);
       $sitios = array();
       foreach ($selecciones as $seleccion) {
         $sitios[]=array("nombre" => $seleccion->nombre

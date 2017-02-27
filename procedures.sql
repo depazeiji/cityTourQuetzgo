@@ -9,8 +9,7 @@ s.nombre AS nombre, s.calificacion AS calificacion, s.descripcion AS resumen, f.
   FROM SITIO s, FOTO f
   WHERE f.id_sitio = s.id_sitio
     AND f.portada
-  ORDER BY calificacion DESC
-  LIMIT 10;
+  ORDER BY calificacion DESC;
 END $$
 
 CREATE PROCEDURE getSitio(_id_sitio int)
